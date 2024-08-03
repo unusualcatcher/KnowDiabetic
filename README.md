@@ -36,7 +36,7 @@ To run this project, you need to install the following Python packages:
 `python -m venv venv`
 `source venv/bin/activate`
 
- On Windows use `venv\Scripts\activate`
+   On Windows use `venv\Scripts\activate`
 
 6. Install the required packages:
 `python -m pip install scikit-learn django pandas numpy`
