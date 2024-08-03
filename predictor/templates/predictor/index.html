@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .form-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #0056b3;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #0056b3;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #003d7a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid" style="margin-top: 25px;">
+        {% if output == 1 %}
+    
+            <div class="alert alert-danger" role="alert" style="display: flex; justify-content: center; align-items: center; border-radius: 10px;">
+                You have diabetes!
+            </div>
+        {% else %}
+            <div class="alert alert-success" role="alert" style="display: flex; justify-content: center; align-items: center; border-radius: 10px;">
+                You don't have diabetes!
+            </div>
+        {% endif %}
+    </div>
+    <div class="container form-container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Diabetes Prediction Form</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="pregnancies">Pregnancies</label>
+                                <input type="number" class="form-control" id="pregnancies" name="pregnancies" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="glucose">Glucose</label>
+                                <input type="number" class="form-control" id="glucose" name="glucose" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bloodPressure">Blood Pressure</label>
+                                <input type="number" class="form-control" id="bloodPressure" name="bloodPressure" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="skinThickness">Skin Thickness</label>
+                                <input type="number" class="form-control" id="skinThickness" name="skinThickness" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="insulin">Insulin</label>
+                                <input type="number" class="form-control" id="insulin" name="insulin" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="bmi">BMI</label>
+                                <input type="number" step="0.1" class="form-control" id="bmi" name="bmi" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="diabetesPedigreeFunction">Diabetes Pedigree Function</label>
+                                <input type="text" class="form-control" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" class="form-control" id="age" name="age" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
